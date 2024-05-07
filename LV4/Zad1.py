@@ -11,13 +11,13 @@ y = data['CO2 Emissions (g/km)']
 X = data[['Engine Size (L)', 'Cylinders', 'Fuel Consumption City (L/100km)', 'Fuel Consumption Hwy (L/100km)', 'Fuel Consumption Comb (L/100km)', 'Fuel Consumption Comb (mpg)']]
 X_train , X_test , y_train , y_test = train_test_split(X,y, test_size=0.2)
 
-# for col in X.columns:
-#     plt.scatter(x=X_train[col], y=y_train, s=2, c='blue')
-#     plt.scatter(x=X_test[col], y=y_test, s=2, c='red')
-#     plt.ylabel('CO2 Emissions (g/km)')
-#     plt.xlabel(col)
-#     plt.legend(['Train', 'Test'])
-#     plt.show()
+for col in X.columns:
+  plt.scatter(x=X_train[col], y=y_train, s=2, c='blue')
+  plt.scatter(x=X_test[col], y=y_test, s=2, c='red')
+  plt.ylabel('CO2 Emissions (g/km)')
+  plt.xlabel(col)
+  plt.legend(['Train', 'Test'])
+  plt.show()
 
 sc = MinMaxScaler()
 X_train_n = pd.DataFrame(sc.fit_transform(X_train), columns=X_train.columns)
