@@ -18,15 +18,12 @@ plt.legend()
 
 plt.show()
 
-# b) Stupčasti dijagram najveće vrijednosti širine čašice za sve tri klase cvijeta
-max_sepal_width = max(iris.data[:, 1])  # Pronalazak najveće vrijednosti širine čašice
+max_sepal_width_per_class = [max(iris.data[iris.target == i][:, 1]) for i in range(3)]
 
-plt.bar(iris.target_names, [max_sepal_width] * 3, color=['blue', 'orange', 'green'])
-
+plt.bar(iris.target_names, max_sepal_width_per_class, color=['blue', 'orange', 'green'])
 plt.xlabel('Klasa cvijeta')
 plt.ylabel('Najveća vrijednost širine čašice')
 plt.title('Najveća vrijednost širine čašice za sve tri klase cvijeta')
-
 plt.show()
 
 # c) Izračun broja jedinki klase Setosa s većom širinom čašice od prosječne širine čašice te klase
